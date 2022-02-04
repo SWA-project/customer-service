@@ -1,9 +1,11 @@
 import Customer from './Customer';
-
+import CustomerCreditCard from './CustomerCreditCard';
 export {
-  Customer
+  Customer,
+  CustomerCreditCard
 };
 
 export default {
-  Customer
+  Customer,
+  CustomerCreditCard
 };

@@ -13,3 +13,8 @@ export interface CustomerAttributes extends CreatedAtUpdatedAt {
 }
 
 export type CustomerCreationAttributes = Optional<CustomerAttributes, 'id' | 'createdAt' | 'updatedAt'>;
+
+export interface CustomerCreditCardAttributes extends CreatedAtUpdatedAt {
+  customerId: number
+  type: string
+}

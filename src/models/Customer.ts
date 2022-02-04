@@ -1,8 +1,9 @@
-import { Model, Table, Column, DataType } from 'sequelize-typescript';
+
+import { Model, Table, Column, DataType, HasMany } from 'sequelize-typescript';
 
 import { CustomerCreationAttributes, CustomerAttributes } from '../types/models';
 
-
+import CustomerCreditCard from './CustomerCreditCard';
 
 @Table
 class Customer extends Model<CustomerAttributes, CustomerCreationAttributes> {
@@ -27,6 +28,9 @@ class Customer extends Model<CustomerAttributes, CustomerCreationAttributes> {
     type: DataType.STRING
   })
   ssn!: string;
+
+  @HasMany(() => CustomerCreditCard)
+  creditCards?: CustomerCreditCard[];
 
 }
 
