@@ -30,9 +30,18 @@ services:
       dockerfile: Dockerfile.dev
     environment:
       DATABASE_URL: postgres://postgres:password@postgres-db:5432/customer-db
+      EVENTUATE_TRAM_MYSQL_HOST: mysql
+      EVENTUATE_TRAM_MYSQL_PORT: 3306
+      EVENTUATE_TRAM_MYSQL_DATABASE: eventuate
+      EVENTUATE_TRAM_MYSQL_USERNAME: mysqluser
+      EVENTUATE_TRAM_MYSQL_PASSWORD: mysqlpw
+      EVENTUATE_TRAM_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     depends_on:
       postgres-db:
         condition: service_healthy
+    links:
+      - kafka
+      - mysql
     ports: 
       - 3000:3000
     volumes:

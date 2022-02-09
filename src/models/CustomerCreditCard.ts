@@ -6,7 +6,14 @@ import Customer from './Customer';
 
 @Table
 class CustomerCreditCard extends Model<CustomerCreditCardAttributes> {
-
+  
+  @Column({ 
+    primaryKey: true, 
+    autoIncrement: true,
+    type: DataType.INTEGER
+  })
+  id!: number;
+  
   @ForeignKey(() => Customer)
   customerId!: number;
   

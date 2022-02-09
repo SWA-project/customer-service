@@ -14,7 +14,13 @@ export interface CustomerAttributes extends CreatedAtUpdatedAt {
 
 export type CustomerCreationAttributes = Optional<CustomerAttributes, 'id' | 'createdAt' | 'updatedAt'>;
 
+export enum CreditCardType {
+  VISA = 'visa',
+  MASTER = 'master'
+}
+
 export interface CustomerCreditCardAttributes extends CreatedAtUpdatedAt {
+  id: number,
   customerId: number
-  type: string
+  type: CreditCardType
 }
